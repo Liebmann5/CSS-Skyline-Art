@@ -1,0 +1,109 @@
+/*FCC:In CSS, you can target everything with an asterisk.{At this point only <html> & <body> present}*/
+/*FCC:This is a trick that helps visualize where elements are and their size.{Hence ^2 boarders}*/
+* {
+  border: 1px solid black;
+  /*NOTE:This will make it so the border you added doesn't add any size to your elements.{padding and border = h and w now!!}*/
+  box-sizing: border-box;
+}
+
+/*FCC:You can see the body (it's the inner-most box on your page); the box around it is the html element*/
+body {
+  /*FCC:Make your body fill the whole viewport by giving it a height of 100vh*/
+  height: 100vh;
+  /*FCC:Remove the default margin from the body by setting the margin to 0*/
+  margin: 0;
+  /*FCC:Set the overflow property to hidden to hide any scroll bars that appear when something extends past the viewport*/
+  overflow: hidden;
+}
+
+/*FCC:Give your .background-buildings element a width and height of 100% to make it the full width and height of its parent, the body*/
+.background-buildings {
+  width: 100%;
+  height: 100%;
+  /* {6} */
+  /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  /*Sooooo I believe how you go about organizing CSS is to organize the size{like h & w^ above} of your element THEN continue and set the sizes' for the rest of elements in 'that' particular container AND THEN go to the parent to position all the elements in your container accordingly FINALLY do any final adjustments and decorating*/
+  /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  display: flex;
+  /*W3:flex-end = Items are positioned at the end of the container*/
+  /*I assume like "the final corner"; so like margin's 4 values 'left' is the final value*/
+  align-items: flex-end;
+  justify-content: space-evenly;
+}
+
+.bb1 {
+  width: 10%;
+  height: 70%;
+  /* {1} */
+  /*How we control how items are spread out and aligned in a container*/
+  display: flex;
+  /*How we align{along either the x or y axis} & order the objects!!!*/
+  flex-direction: column;
+  /*?How we size the objects in the container?*/
+  align-items: center;
+  /* {2} */
+  --building-color1: #999;
+}
+
+/*FCC:Remember that these percentages are relative to the parent and note that the heights will add up to 100% - vertically filling the container*/
+.bb1a {
+  width: 70%;
+  height: 10%;
+  /* {3} */
+}
+
+.bb1b {
+  width: 80%;
+  height: 10%;
+  /* {4} */
+  background-color: var(--building-color1);
+}
+
+.bb1c {
+  width: 90%;
+  height: 10%;
+  /* {4} */
+  background-color: var(--building-color1);
+}
+
+.bb1d {
+  width: 100%;
+  height: 70%;
+  /* {4} */
+  background-color: var(--building-color1);
+}
+
+/*--------------------      {1}      --------------------*/
+/*--------------------      {2}      --------------------*/
+/*--------------------      {3}      --------------------*/
+/*--------------------      {4}      --------------------*/
+/* Just changed the color of --building-color1 */
+/*--------------------      {5}      --------------------*/
+
+/*These buildings were made below each other {I'm pretty sure} in order {like stacked top=1 & bot=n}*/
+/*I'm fairly certain the starting point FOR A NEW BUILDING is the top left hand corner!!! Which means; from the previous buildings perspective, it would be the bottom left hand corner!!!!*/
+.bb2 {
+  width: 10%;
+  height: 50%;
+}
+
+.bb3 {
+  width: 10%;
+  height: 55%;
+}
+
+.bb4 {
+  width: 11%;
+  height: 58%;
+}
+/*FCC:The buildings are currently stacked on top of each other*/
+
+/*--------------------      {6}      --------------------*/
+
+/*FCC: You want the .foreground-buildings container to sit directly on top of the .background-buildings element. Give it a width and height of 100%, set the position to absolute, and the top to 0. This will make it the same size as the body and move the start of it to the top left corner.*/
+.foreground-buildings {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
